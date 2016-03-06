@@ -8,8 +8,14 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyPersonalAccountsModel", "MyPersonalAccountsModel\MyPersonalAccountsModel.csproj", "{FB9B4B17-EB59-4A4D-A289-D1E1252416DD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyPersonalAccountsService", "MyPersonalAccountsService\MyPersonalAccountsService.csproj", "{94027BA0-6BD8-4FFB-8053-EAC3B766D960}"
+	ProjectSection(ProjectDependencies) = postProject
+		{FB9B4B17-EB59-4A4D-A289-D1E1252416DD} = {FB9B4B17-EB59-4A4D-A289-D1E1252416DD}
+		{323C877E-79C9-4EC9-AA6E-EEA90E52DCE1} = {323C877E-79C9-4EC9-AA6E-EEA90E52DCE1}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyPersonalAccountsController", "MyPersonalAccountsController\MyPersonalAccountsController.csproj", "{323C877E-79C9-4EC9-AA6E-EEA90E52DCE1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestController", "TestController\TestController.csproj", "{26A2A41C-4C24-4F61-88EA-2878F9239A26}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +39,10 @@ Global
 		{323C877E-79C9-4EC9-AA6E-EEA90E52DCE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{323C877E-79C9-4EC9-AA6E-EEA90E52DCE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{323C877E-79C9-4EC9-AA6E-EEA90E52DCE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26A2A41C-4C24-4F61-88EA-2878F9239A26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26A2A41C-4C24-4F61-88EA-2878F9239A26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26A2A41C-4C24-4F61-88EA-2878F9239A26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26A2A41C-4C24-4F61-88EA-2878F9239A26}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
