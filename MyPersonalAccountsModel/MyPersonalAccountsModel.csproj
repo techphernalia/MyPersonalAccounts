@@ -40,9 +40,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\IInventoryController.cs" />
-    <Compile Include="LedgerEffect.cs" />
-    <Compile Include="LedgerGroup.cs" />
-    <Compile Include="LedgerType.cs" />
+    <Compile Include="Accounts\LedgerEffect.cs" />
+    <Compile Include="Accounts\LedgerGroup.cs" />
+    <Compile Include="Accounts\LedgerType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Inventory\StockGroup.cs" />
     <Compile Include="Inventory\StockItem.cs" />
