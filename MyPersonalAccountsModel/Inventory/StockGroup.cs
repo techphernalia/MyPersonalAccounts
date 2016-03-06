@@ -9,7 +9,7 @@ namespace com.techphernalia.MyPersonalAccounts.Model.Inventory
     {
         public int StockGroupId { get; set; }
         public string StockGroupName { get; set; }
-        public int StockParentGroup { get; set; }
+        public int ParentStockGroup { get; set; }
         public bool AddQuantity { get; set; }
     }
 }
