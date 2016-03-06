@@ -36,7 +36,7 @@ namespace com.techphernalia.MyPersonalAccounts.Model.Inventory
         /// <returns></returns>
         public override string ToString()
         {
-            return string.Format("[{0}] with symbol [{1}] having {2} Decimal Places", StockUnitName, StockUnitSymbol, StockUnitDecimalPlaces);
+            return string.Format("[{0}] with symbol [{1}] having {2} Decimal Places with Id : {3}", StockUnitName, StockUnitSymbol, StockUnitDecimalPlaces, StockUnitId);
         }
     }
 }
