@@ -16,9 +16,9 @@ namespace com.techphernalia.MyPersonalAccounts.Model.Controller
 
         int AddStockUnit(StockUnit stockUnit);
 
-        bool UpdateStockUnit(StockUnit stockUnit);
+        void UpdateStockUnit(StockUnit stockUnit);
 
-        bool DeleteStockUnit(int unitId);
+        void DeleteStockUnit(int unitId);
 
         #endregion
 
