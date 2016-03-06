@@ -34,5 +34,14 @@ namespace com.techphernalia.MyPersonalAccounts.Model
         /// Ledger Group Effect
         /// </summary>
         public LedgerEffect LedgerEffect { get; set; }
+
+        /// <summary>
+        /// Display Ledger Group
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return string.Format("[{0}] with type [{1}] having effect [{2}] with Id [{3}]", LedgerGroupName, LedgerType, LedgerEffect, LedgerGroupId);
+        }
     }
 }
