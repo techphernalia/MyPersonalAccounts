@@ -37,6 +37,17 @@ CREATE TABLE StockItems
 )
 GO
 
+CREATE TABLE LedgerGroups
+(
+	ledger_group_id int not null identity,
+	ledger_group_name varchar(100) not null,
+	parent_ledger_group_id int not null,
+	ledger_type int not null,
+	ledger_effect int not null,
+	CONSTRAINT pk_ledger_group_id PRIMARY KEY CLUSTERED(ledger_group_id )
+)
+GO
+
 CREATE PROCEDURE DeleteStockUnit
 	@stock_unit_id INT
 AS
@@ -202,3 +213,75 @@ begin
 end
 GO
 
+CREATE PROCEDURE DeleteLedgerGroup
+	@ledger_group_id INT
+AS
+BEGIN
+	DELETE FROM LedgerGroups where ledger_group_id = @ledger_group_id
+END
+GO
+
+CREATE PROCEDURE GetLedgerGroups
+	@ledger_group_id INT = NULL,
+	@parent_ledger_group_id INT = NULL
+as
+begin
+	select * from LedgerGroups WITH (NOLOCK)
+	where 
+		(@ledger_group_id IS NULL OR @ledger_group_id = 0 OR ledger_group_id = @ledger_group_id) AND
+		(@parent_ledger_group_id IS NULL OR @parent_ledger_group_id = 0 OR parent_ledger_group_id = @parent_ledger_group_id)
+end
+GO
+
+CREATE PROCEDURE EditLedgerGroup
+	@ledger_group_id int,
+	@ledger_group_name varchar(100),
+	@parent_ledger_group_id INT,
+	@ledger_type INT
+as
+begin
+	update LedgerGroups set
+		ledger_group_name = @ledger_group_name ,
+		parent_ledger_group_id = @parent_ledger_group_id ,
+		ledger_type = @ledger_type
+	where ledger_group_id = @ledger_group_id
+
+	Update G set 
+		G.ledger_effect = P.ledger_effect 
+	from LedgerGroups G 
+	INNER JOIN LedgerGroups P ON P.ledger_group_id = G.parent_ledger_group_id 
+	where G.ledger_group_id = @ledger_group_id
+
+end
+GO
+
+CREATE PROCEDURE AddLedgerGroup
+	@ledger_group_name varchar(100),
+	@parent_ledger_group_id INT,
+	@ledger_type INT
+AS
+BEGIN
+	DECLARE @id INT
+
+	INSERT INTO LedgerGroups(ledger_group_name,parent_ledger_group_id,ledger_type, ledger_effect)
+	VALUES(@ledger_group_name,@parent_ledger_group_id,@ledger_type,-1)
+
+	SET @id = @@IDENTITY
+
+	Update G set 
+		G.ledger_effect = P.ledger_effect 
+	from LedgerGroups G 
+	INNER JOIN LedgerGroups P ON P.ledger_group_id = G.parent_ledger_group_id 
+	where G.ledger_group_id = @id
+
+	SELECT @id
+END
+GO
+
+insert into LedgerGroups(ledger_group_name,parent_ledger_group_id,ledger_type,ledger_effect) values
+('Assets - Primary',0,1,0),
+('Liabilities - Primary',0,1,1),
+('Income (In-Direct) - Primary',0,1,2),
+('Expences (In-Direct) - Primary',0,1,3),
+('Income (Direct) - Primary',0,1,4),
+('Expences (Direct) - Primary',0,1,5);

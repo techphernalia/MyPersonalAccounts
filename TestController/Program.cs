@@ -1,4 +1,5 @@
 ﻿using com.techphernalia.MyPersonalAccounts.Controller;
+using com.techphernalia.MyPersonalAccounts.Model;
 using com.techphernalia.MyPersonalAccounts.Model.Controller;
 using com.techphernalia.MyPersonalAccounts.Model.Inventory;
 using System;
@@ -17,6 +18,11 @@ namespace TestController
             Print(controller.GetAllStockGroups());
             Print(controller.GetAllStockItems());
             Print(controller.GetAllStockUnits());
+
+            IAccountsController aController = new AccountsController();
+            Print(aController.GetAllLedgerGroups());
+            Print(aController.GetLedgerGroupsForParentGroup(0));
+            Console.WriteLine(aController.GetLedgerGroupById(1));
 
             Console.Write("Press any key to exit...");
             Console.ReadLine();
