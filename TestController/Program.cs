@@ -13,12 +13,11 @@ namespace TestController
         static void Main(string[] args)
         {
             IInventoryController controller = new InventoryController();
-
-            //controller.AddStockUnit(new StockUnit { StockUnitName = "_Primary", StockUnitSymbol = "" , StockUnitDecimalPlaces = 0 });
-
-            Print(controller.GetAllStockUnits());
-            Print(controller.GetAllStockItems());
+            
             Print(controller.GetAllStockGroups());
+            Print(controller.GetAllStockItems());
+            Print(controller.GetAllStockUnits());
+
             Console.Write("Press any key to exit...");
             Console.ReadLine();
         }
