@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccountsController.cs" />
     <Compile Include="DAL\DBToModel.cs" />
     <Compile Include="DAL\SQLController.cs" />
     <Compile Include="InventoryController.cs" />
