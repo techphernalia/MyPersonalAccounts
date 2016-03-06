@@ -1,3 +1,8 @@
+select * from StockUnits;
+select * from stockItems;
+select * from stockGroups;
+select * from ledgergroups;
+
 CREATE DATABASE MyPersonalAccountsManager
 GO
 USE MyPersonalAccountsManager
