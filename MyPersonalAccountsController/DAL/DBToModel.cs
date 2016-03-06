@@ -29,7 +29,7 @@ namespace com.techphernalia.MyPersonalAccounts.Controller.DAL
                         StockGroupId = row.Field<int>("stock_group_id"),
                         StockGroupName = row.Field<string>("stock_group_name"),
                         ParentStockGroup = row.Field<int>("parent_stock_group"),
-                        AddQuantity = row.Field<bool>("allow_quantity_add")
+                        AllowQuantityAdd = row.Field<bool>("allow_quantity_add")
                     }).ToList();
         }
 
@@ -42,8 +42,8 @@ namespace com.techphernalia.MyPersonalAccounts.Controller.DAL
                         StockItemName = row.Field<string>("stock_item_name"),
                         StockGroupId = row.Field<int>("parent_stock_group"),
                         StockUnitId = row.Field<int>("parent_stock_unit"),
-                        OpeningBalance = row.Field<double>("opening_balance"),
-                        OpeningRate = row.Field<double>("opening_rate")
+                        OpeningBalance = row.Field<decimal>("opening_balance"),
+                        OpeningRate = row.Field<decimal>("opening_rate")
                     }).ToList();
         }
     }
