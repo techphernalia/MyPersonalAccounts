@@ -1,4 +1,5 @@
-﻿using com.techphernalia.MyPersonalAccounts.Model.Inventory;
+﻿using com.techphernalia.MyPersonalAccounts.Model;
+using com.techphernalia.MyPersonalAccounts.Model.Inventory;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -7,8 +8,16 @@ using System.Text;
 
 namespace com.techphernalia.MyPersonalAccounts.Controller.DAL
 {
+    /// <summary>
+    /// Extension Methods to map DataTable to C# Models
+    /// </summary>
     public static class DBToModel
     {
+        /// <summary>
+        /// Converts SQL DataTable to List of Stock Units
+        /// </summary>
+        /// <param name="DT"></param>
+        /// <returns></returns>
         public static List<StockUnit> ToStockUnits(this DataTable DT)
         {
             return (from row in DT.AsEnumerable()
@@ -21,6 +30,11 @@ namespace com.techphernalia.MyPersonalAccounts.Controller.DAL
                     }).ToList();
         }
 
+        /// <summary>
+        /// Converts SQL DataTable to List of Stock Groups
+        /// </summary>
+        /// <param name="DT"></param>
+        /// <returns></returns>
         public static List<StockGroup> ToStockGroups(this DataTable DT)
         {
             return (from row in DT.AsEnumerable()
@@ -33,6 +47,11 @@ namespace com.techphernalia.MyPersonalAccounts.Controller.DAL
                     }).ToList();
         }
 
+        /// <summary>
+        /// Converts SQL DataTable to List of Stock Items
+        /// </summary>
+        /// <param name="DT"></param>
+        /// <returns></returns>
         public static List<StockItem> ToStockItems(this DataTable DT)
         {
             return (from row in DT.AsEnumerable()
@@ -44,6 +63,24 @@ namespace com.techphernalia.MyPersonalAccounts.Controller.DAL
                         StockUnitId = row.Field<int>("parent_stock_unit"),
                         OpeningBalance = row.Field<decimal>("opening_balance"),
                         OpeningRate = row.Field<decimal>("opening_rate")
+                    }).ToList();
+        }
+
+        /// <summary>
+        /// Converts SQL DataTable to List of Ledger Groups
+        /// </summary>
+        /// <param name="DT"></param>
+        /// <returns></returns>
+        public static List<LedgerGroup> ToLedgerGroups(this DataTable DT)
+        {
+            return (from row in DT.AsEnumerable()
+                    select new LedgerGroup
+                    {
+                        LedgerGroupId = row.Field<int>("ledger_group_id"),
+                        LedgerEffect = (LedgerEffect)row.Field<int>("ledger_effect"),
+                        LedgerType = (LedgerType)row.Field<int>("ledger_type"),
+                        LedgerGroupName = row.Field<string>("ledger_group_name"),
+                        ParentLedgerGroupId = row.Field<int>("parent_ledger_group_id")
                     }).ToList();
         }
     }
