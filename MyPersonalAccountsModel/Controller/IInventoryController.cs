@@ -30,11 +30,11 @@ namespace com.techphernalia.MyPersonalAccounts.Model.Controller
         
         StockGroup GetStockGroupFromId(int stockGroupId);
         
-        int AddStockGroup(StockItem stockItem);
+        int AddStockGroup(StockGroup stockGroup);
         
-        bool UpdateStockGroup(StockItem stockItem);
+        void UpdateStockGroup(StockGroup stockGroup);
 
-        bool DeleteStockGroup(int stockGroupId);
+        void DeleteStockGroup(int stockGroupId);
 
         #endregion
 
@@ -46,11 +46,11 @@ namespace com.techphernalia.MyPersonalAccounts.Model.Controller
 
         StockItem GetStockItemFromId(int stockItemId);
 
-        int AddStockItem(StockGroup stockGroup);
+        int AddStockItem(StockItem stockItem);
 
-        bool UpdateStockItem(StockGroup stockGroup);
+        void UpdateStockItem(StockItem stockItem);
 
-        bool DeleteStockItemI(int stockItemId);
+        void DeleteStockItem(int stockItemId);
 
         #endregion
     }

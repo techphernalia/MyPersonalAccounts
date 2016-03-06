@@ -21,7 +21,7 @@ namespace com.techphernalia.MyPersonalAccounts.Controller
         public StockUnit GetStockUnitFromId(int unitId)
         {
             var stockUnit = SQLController.GetInstance().ExecuteProcedure("GetStockUnits", new SqlParameter[] { new SqlParameter { ParameterName = "@stock_unit_id", Value = unitId } }).Tables[0].ToStockUnits();
-            if(stockUnit.Count > 0)
+            if (stockUnit.Count > 0)
             {
                 return stockUnit[0];
             }
@@ -68,27 +68,46 @@ namespace com.techphernalia.MyPersonalAccounts.Controller
 
         public List<StockGroup> GetStockGroupsForGroup(int stockGroupId)
         {
-            throw new NotImplementedException();
+            return SQLController.GetInstance().ExecuteProcedure("GetStockGroups", new SqlParameter[] { new SqlParameter { ParameterName = "@parent_stock_group_id", Value = stockGroupId } }).Tables[0].ToStockGroups();
         }
 
         public StockGroup GetStockGroupFromId(int stockGroupId)
         {
-            throw new NotImplementedException();
+            var stockGroup = SQLController.GetInstance().ExecuteProcedure("GetStockGroups", new SqlParameter[] { new SqlParameter { ParameterName = "@stock_group_id", Value = stockGroupId } }).Tables[0].ToStockGroups();
+            if (stockGroup.Count > 0)
+            {
+                return stockGroup[0];
+            }
+            return null;
         }
 
-        public int AddStockGroup(StockItem stockItem)
+        public int AddStockGroup(StockGroup stockGroup)
         {
-            throw new NotImplementedException();
+            return Convert.ToInt32(SQLController.GetInstance().ExecuteProcedure("AddStockGroup", new SqlParameter[]
+            {
+                new SqlParameter { ParameterName = "@stock_group_name", Value = stockGroup.StockGroupName },
+                new SqlParameter { ParameterName = "@parent_stock_group", Value = stockGroup.ParentStockGroup},
+                new SqlParameter { ParameterName = "@allow_quantity_add", Value = stockGroup.AllowQuantityAdd}
+            }).Tables[0].Rows[0][0]);
         }
 
-        public bool UpdateStockGroup(StockItem stockItem)
+        public void UpdateStockGroup(StockGroup stockGroup)
         {
-            throw new NotImplementedException();
+            SQLController.GetInstance().ExecuteProcedure("EditStockGroup", new SqlParameter[]
+            {
+                new SqlParameter { ParameterName = "@stock_group_id", Value = stockGroup.StockGroupId },
+                new SqlParameter { ParameterName = "@stock_group_name", Value = stockGroup.StockGroupName },
+                new SqlParameter { ParameterName = "@parent_stock_group", Value = stockGroup.ParentStockGroup },
+                new SqlParameter { ParameterName = "@allow_quantity_add", Value = stockGroup.AllowQuantityAdd }
+            });
         }
 
-        public bool DeleteStockGroup(int stockGroupId)
+        public void DeleteStockGroup(int stockGroupId)
         {
-            throw new NotImplementedException();
+            SQLController.GetInstance().ExecuteProcedure("DeleteStockGroup", new SqlParameter[]
+            {
+                new SqlParameter { ParameterName = "@stock_group_id", Value = stockGroupId}
+            });
         }
 
         #endregion
@@ -102,27 +121,50 @@ namespace com.techphernalia.MyPersonalAccounts.Controller
 
         public List<StockItem> GetStockItemsForGroup(int stockGroupId)
         {
-            throw new NotImplementedException();
+            return SQLController.GetInstance().ExecuteProcedure("GetStockItems", new SqlParameter[] { new SqlParameter { ParameterName = "@parent_stock_group_id", Value = stockGroupId } }).Tables[0].ToStockItems();
         }
 
         public StockItem GetStockItemFromId(int stockItemId)
         {
-            throw new NotImplementedException();
+            var stockItem = SQLController.GetInstance().ExecuteProcedure("GetStockItems", new SqlParameter[] { new SqlParameter { ParameterName = "@stock_item_id", Value = stockItemId } }).Tables[0].ToStockItems();
+            if (stockItem.Count > 0)
+            {
+                return stockItem[0];
+            }
+            return null;
         }
 
-        public int AddStockItem(StockGroup stockGroup)
+        public int AddStockItem(StockItem stockItem)
         {
-            throw new NotImplementedException();
+            return Convert.ToInt32(SQLController.GetInstance().ExecuteProcedure("AddStockItem", new SqlParameter[]
+            {
+                new SqlParameter { ParameterName = "@stock_item_name", Value = stockItem.StockItemName },
+                new SqlParameter { ParameterName = "@parent_stock_group", Value = stockItem.StockGroupId},
+                new SqlParameter { ParameterName = "@parent_stock_unit", Value = stockItem.StockUnitId},
+                new SqlParameter { ParameterName = "@opening_balance", Value = stockItem.OpeningBalance },
+                new SqlParameter { ParameterName = "@opening_rate", Value = stockItem.OpeningRate }
+            }).Tables[0].Rows[0][0]);
         }
 
-        public bool UpdateStockItem(StockGroup stockGroup)
+        public void UpdateStockItem(StockItem stockItem)
         {
-            throw new NotImplementedException();
+            SQLController.GetInstance().ExecuteProcedure("EditStockItem", new SqlParameter[]
+           {
+                new SqlParameter { ParameterName = "@stock_item_id", Value = stockItem.StockItemId },
+                new SqlParameter { ParameterName = "@stock_item_name", Value = stockItem.StockItemName },
+                new SqlParameter { ParameterName = "@parent_stock_group", Value = stockItem.StockGroupId},
+                new SqlParameter { ParameterName = "@parent_stock_unit", Value = stockItem.StockUnitId},
+                new SqlParameter { ParameterName = "@opening_balance", Value = stockItem.OpeningBalance },
+                new SqlParameter { ParameterName = "@opening_rate", Value = stockItem.OpeningRate }
+           });
         }
 
-        public bool DeleteStockItemI(int stockItemId)
+        public void DeleteStockItem(int stockItemId)
         {
-            throw new NotImplementedException();
+            SQLController.GetInstance().ExecuteProcedure("DeleteStockItem", new SqlParameter[]
+           {
+                new SqlParameter { ParameterName = "@stock_item_id", Value = stockItemId}
+           });
         }
 
         #endregion
