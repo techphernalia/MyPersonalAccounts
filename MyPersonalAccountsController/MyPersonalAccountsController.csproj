@@ -41,12 +41,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppController\ApplicationController.Accounts.cs" />
-    <Compile Include="AccountsController.cs" />
+    <Compile Include="Controllers\AccountsController.cs" />
     <Compile Include="AppController\ApplicationController.Inventory.cs" />
     <Compile Include="ApplicationController.cs" />
     <Compile Include="DAL\DBToModel.cs" />
     <Compile Include="DAL\SQLController.cs" />
-    <Compile Include="InventoryController.cs" />
+    <Compile Include="Controllers\InventoryController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
