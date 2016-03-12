@@ -1,4 +1,6 @@
-﻿using com.techphernalia.MyPersonalAccounts.Model;
+﻿using com.techphernalia.MyPersonalAccounts.Controller.Controllers;
+using com.techphernalia.MyPersonalAccounts.Model;
+using com.techphernalia.MyPersonalAccounts.Model.AppConfig;
 using com.techphernalia.MyPersonalAccounts.Model.Inventory;
 using System.Collections.Generic;
 using System.Data;
@@ -24,7 +26,8 @@ namespace com.techphernalia.MyPersonalAccounts.Controller.DAL
                         StockUnitId = row.Field<int>("stock_unit_id"),
                         StockUnitName = row.Field<string>("stock_unit_name"),
                         StockUnitSymbol = row.Field<string>("stock_unit_symbol"),
-                        StockUnitDecimalPlaces = row.Field<int>("stock_unit_decimal_places")
+                        StockUnitDecimalPlaces = row.Field<int>("stock_unit_decimal_places"),
+                        SystemId = ConfigurationController.instance["StockUnit"]
                     }).ToList();
         }
 
@@ -41,7 +44,8 @@ namespace com.techphernalia.MyPersonalAccounts.Controller.DAL
                         StockGroupId = row.Field<int>("stock_group_id"),
                         StockGroupName = row.Field<string>("stock_group_name"),
                         ParentStockGroup = row.Field<int>("parent_stock_group"),
-                        AllowQuantityAdd = row.Field<bool>("allow_quantity_add")
+                        AllowQuantityAdd = row.Field<bool>("allow_quantity_add"),
+                        SystemId = ConfigurationController.instance["StockGroup"]
                     }).ToList();
         }
 
@@ -60,7 +64,8 @@ namespace com.techphernalia.MyPersonalAccounts.Controller.DAL
                         StockGroupId = row.Field<int>("parent_stock_group"),
                         StockUnitId = row.Field<int>("parent_stock_unit"),
                         OpeningBalance = row.Field<decimal>("opening_balance"),
-                        OpeningRate = row.Field<decimal>("opening_rate")
+                        OpeningRate = row.Field<decimal>("opening_rate"),
+                        SystemId = ConfigurationController.instance["StockItem"]
                     }).ToList();
         }
 
@@ -78,7 +83,21 @@ namespace com.techphernalia.MyPersonalAccounts.Controller.DAL
                         LedgerEffect = (LedgerEffect)row.Field<int>("ledger_effect"),
                         LedgerType = (LedgerType)row.Field<int>("ledger_type"),
                         LedgerGroupName = row.Field<string>("ledger_group_name"),
-                        ParentLedgerGroupId = row.Field<int>("parent_ledger_group_id")
+                        ParentLedgerGroupId = row.Field<int>("parent_ledger_group_id"),
+                        SystemId = ConfigurationController.instance["LedgerGroup"]
+                    }).ToList();
+        }
+
+        public static List<NameConfiguration> ToNameConfiguration(this DataTable DT)
+        {
+            return (from row in DT.AsEnumerable()
+                    select new NameConfiguration
+                    {
+                        ConfigurationId = row.Field<int>("id"),
+                        SystemName = row.Field<string>("system_name"),
+                        Prefix = row.Field<string>("name_prefix"),
+                        Suffix = row.Field<string>("name_suffix"),
+                        IDLength = row.Field<int>("id_length")
                     }).ToList();
         }
     }

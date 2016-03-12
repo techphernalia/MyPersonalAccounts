@@ -44,6 +44,7 @@
     <Compile Include="Controllers\AccountsController.cs" />
     <Compile Include="AppController\ApplicationController.Inventory.cs" />
     <Compile Include="ApplicationController.cs" />
+    <Compile Include="Controllers\ConfigurationController.cs" />
     <Compile Include="DAL\DBToModel.cs" />
     <Compile Include="DAL\SQLController.cs" />
     <Compile Include="Controllers\InventoryController.cs" />
