@@ -1,28 +1,28 @@
 # MyPersonalAccounts
 I will be using this project to feed my personal transactions and get reports out of it
 
-## MyPersonalAccountsModel
+## Projects in Solution
+### MyPersonalAccountsModel
 MyPersonalAccountsModel contains all the items which are shared across Service and UI
 - Models
 - Exceptions
 - Controller Interfaces
 
-## MyPersonalAccountsController
+### MyPersonalAccountsController
 MyPersonalAccountsController contains Database Interactor (DAL) and Implementation of Interfaces as defined in MyPersonalAccountsModel
 - Database Interactor
 - Implementation of Interfaces
 - WCF Implementation
 
-## MyPersonalAccountsService
+### MyPersonalAccountsService
 MyPersonalAccountsService is our Windows Service which will host WCF and serve data to UI
 - Windows Service
 - WCF Hosting
 
-## MyPersonalAccountsManager
+### MyPersonalAccountsManager
 MyPersonalAccountsManager contains the Runnable UI of Accounts Manager
 
-
-# Installation
+## Installation
 Installation requires 3 major steps
 - Go to SQL Scripts and install Database Scripts
 - Install Service
@@ -35,3 +35,10 @@ Installation requires 3 major steps
 	- `baseAddress` if required
 - Install UI
   - Open MyPersonalAccountsManager.exe.config and update `address` if required (If you changed `baseAddress` above)
+
+## Running the project
+- Go to Windows Services `services.msc` and start **Accounting Service** if not already started
+- Run **MyPersonalAccountsManager.exe** and you are done.
+
+## Features of MyPersonalAccounts
+Yet to be updated
