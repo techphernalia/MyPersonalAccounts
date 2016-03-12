@@ -14,7 +14,8 @@ namespace com.techphernalia.MyPersonalAccounts.Controller.Controllers
         static ConfigurationController()
         {
             var temp = SQLController.GetInstance().ExecuteProcedure("CongifurationGetAll",null).Tables[0].ToNameConfiguration();
-            foreach(var t in temp)
+            SystemIdConfiguration = new Dictionary<string, string>();
+            foreach (var t in temp)
             {
                 SystemIdConfiguration.Add(t.SystemName.ToUpper(), t.Prefix + ("{0:" + new String('0', t.IDLength) + "}") + t.Suffix);
             }
