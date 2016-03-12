@@ -27,7 +27,7 @@ namespace com.techphernalia.MyPersonalAccounts.Controller.DAL
                         StockUnitName = row.Field<string>("stock_unit_name"),
                         StockUnitSymbol = row.Field<string>("stock_unit_symbol"),
                         StockUnitDecimalPlaces = row.Field<int>("stock_unit_decimal_places"),
-                        SystemId = ConfigurationController.instance["StockUnit"]
+                        SystemId = string.Format(ConfigurationController.instance["StockUnit"], row.Field<int>("stock_unit_id"))
                     }).ToList();
         }
 
@@ -45,7 +45,7 @@ namespace com.techphernalia.MyPersonalAccounts.Controller.DAL
                         StockGroupName = row.Field<string>("stock_group_name"),
                         ParentStockGroup = row.Field<int>("parent_stock_group"),
                         AllowQuantityAdd = row.Field<bool>("allow_quantity_add"),
-                        SystemId = ConfigurationController.instance["StockGroup"]
+                        SystemId = string.Format(ConfigurationController.instance["StockGroup"], row.Field<int>("stock_group_id"))
                     }).ToList();
         }
 
@@ -65,7 +65,7 @@ namespace com.techphernalia.MyPersonalAccounts.Controller.DAL
                         StockUnitId = row.Field<int>("parent_stock_unit"),
                         OpeningBalance = row.Field<decimal>("opening_balance"),
                         OpeningRate = row.Field<decimal>("opening_rate"),
-                        SystemId = ConfigurationController.instance["StockItem"]
+                        SystemId = string.Format(ConfigurationController.instance["StockItem"], row.Field<int>("stock_item_id"))
                     }).ToList();
         }
 
@@ -84,7 +84,7 @@ namespace com.techphernalia.MyPersonalAccounts.Controller.DAL
                         LedgerType = (LedgerType)row.Field<int>("ledger_type"),
                         LedgerGroupName = row.Field<string>("ledger_group_name"),
                         ParentLedgerGroupId = row.Field<int>("parent_ledger_group_id"),
-                        SystemId = ConfigurationController.instance["LedgerGroup"]
+                        SystemId = string.Format(ConfigurationController.instance["LedgerGroup"], row.Field<int>("ledger_group_id"))
                     }).ToList();
         }
 
