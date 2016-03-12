@@ -1,4 +1,5 @@
-﻿using System;
+﻿using com.techphernalia.MyPersonalAccounts.Manager.Inventory;
+using System;
 using System.Windows.Forms;
 
 namespace com.techphernalia.MyPersonalAccounts.Manager
@@ -95,6 +96,21 @@ namespace com.techphernalia.MyPersonalAccounts.Manager
             {
                 childForm.Close();
             }
+        }
+
+        private void reportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach(Form childForm in MdiChildren)
+            {
+                if(childForm is frmStockUnitManager)
+                {
+                    childForm.Show();
+                    return;
+                } 
+            }
+            var f = new frmStockUnitManager();
+            f.MdiParent = this;
+            f.Show();
         }
     }
 }
