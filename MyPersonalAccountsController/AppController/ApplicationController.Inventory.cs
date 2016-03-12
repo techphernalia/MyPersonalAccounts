@@ -9,87 +9,87 @@ namespace com.techphernalia.MyPersonalAccounts.Controller
     {
         public int AddStockGroup(StockGroup stockGroup)
         {
-            throw new NotImplementedException();
+            return InventoryController.AddStockGroup(stockGroup);
         }
 
         public int AddStockItem(StockItem stockItem)
         {
-            throw new NotImplementedException();
+            return InventoryController.AddStockItem(stockItem);
         }
 
         public int AddStockUnit(StockUnit stockUnit)
         {
-            throw new NotImplementedException();
+            return InventoryController.AddStockUnit(stockUnit);
         }
 
         public void DeleteStockGroup(int stockGroupId)
         {
-            throw new NotImplementedException();
+            InventoryController.DeleteStockGroup(stockGroupId);
         }
 
         public void DeleteStockItem(int stockItemId)
         {
-            throw new NotImplementedException();
+            InventoryController.DeleteStockItem(stockItemId);
         }
 
         public void DeleteStockUnit(int unitId)
         {
-            throw new NotImplementedException();
+            InventoryController.DeleteStockUnit(unitId);
         }
 
         public List<StockGroup> GetAllStockGroups()
         {
-            return this.InventoryController.GetAllStockGroups();
+            return InventoryController.GetAllStockGroups();
         }
 
         public List<StockItem> GetAllStockItems()
         {
-            throw new NotImplementedException();
+            return InventoryController.GetAllStockItems();
         }
 
         public List<StockUnit> GetAllStockUnits()
         {
-            throw new NotImplementedException();
+            return InventoryController.GetAllStockUnits();
         }
 
         public StockGroup GetStockGroupFromId(int stockGroupId)
         {
-            throw new NotImplementedException();
+            return InventoryController.GetStockGroupFromId(stockGroupId);
         }
 
         public List<StockGroup> GetStockGroupsForGroup(int stockGroupId)
         {
-            throw new NotImplementedException();
+            return InventoryController.GetStockGroupsForGroup(stockGroupId);
         }
 
         public StockItem GetStockItemFromId(int stockItemId)
         {
-            throw new NotImplementedException();
+            return InventoryController.GetStockItemFromId(stockItemId);
         }
 
         public List<StockItem> GetStockItemsForGroup(int stockGroupId)
         {
-            throw new NotImplementedException();
+            return InventoryController.GetStockItemsForGroup(stockGroupId);
         }
 
         public StockUnit GetStockUnitFromId(int unitId)
         {
-            throw new NotImplementedException();
+            return InventoryController.GetStockUnitFromId(unitId);
         }
 
         public void UpdateStockGroup(StockGroup stockGroup)
         {
-            throw new NotImplementedException();
+            InventoryController.UpdateStockGroup(stockGroup);
         }
 
         public void UpdateStockItem(StockItem stockItem)
         {
-            throw new NotImplementedException();
+            InventoryController.UpdateStockItem(stockItem);
         }
 
         public void UpdateStockUnit(StockUnit stockUnit)
         {
-            throw new NotImplementedException();
+            InventoryController.UpdateStockUnit(stockUnit);
         }
     }
 }

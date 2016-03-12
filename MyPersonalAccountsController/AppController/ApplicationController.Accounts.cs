@@ -10,32 +10,32 @@ namespace com.techphernalia.MyPersonalAccounts.Controller
 
         public int AddLedgerGroup(LedgerGroup ledgerGroup)
         {
-            throw new NotImplementedException();
+            return AccountsController.AddLedgerGroup(ledgerGroup);
         }
 
         public void DeleteLedgerGroup(LedgerGroup ledgerGroup)
         {
-            throw new NotImplementedException();
+            AccountsController.DeleteLedgerGroup(ledgerGroup);
         }
 
         public List<LedgerGroup> GetAllLedgerGroups()
         {
-            throw new NotImplementedException();
+            return AccountsController.GetAllLedgerGroups();
         }
 
         public LedgerGroup GetLedgerGroupById(int ledgerGroupId)
         {
-            throw new NotImplementedException();
+            return AccountsController.GetLedgerGroupById(ledgerGroupId);
         }
 
         public List<LedgerGroup> GetLedgerGroupsForParentGroup(int parentLedgerGroupId)
         {
-            throw new NotImplementedException();
+            return AccountsController.GetLedgerGroupsForParentGroup(parentLedgerGroupId);
         }
 
         public void UpdateLedgerGroup(LedgerGroup ledgerGroup)
         {
-            throw new NotImplementedException();
+            AccountsController.UpdateLedgerGroup(ledgerGroup);
         }
     }
 }
