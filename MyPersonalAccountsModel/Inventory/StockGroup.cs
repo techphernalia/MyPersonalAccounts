@@ -26,6 +26,11 @@
         public bool AllowQuantityAdd { get; set; }
 
         /// <summary>
+        /// Human Readable System Id
+        /// </summary>
+        public string SystemId { get; set; }
+
+        /// <summary>
         /// Display Group Information
         /// </summary>
         /// <returns></returns>

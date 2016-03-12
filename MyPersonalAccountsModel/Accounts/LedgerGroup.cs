@@ -31,6 +31,11 @@
         public LedgerEffect LedgerEffect { get; set; }
 
         /// <summary>
+        /// Human Readable System Id
+        /// </summary>
+        public string SystemId { get; set; }
+
+        /// <summary>
         /// Display Ledger Group
         /// </summary>
         /// <returns></returns>

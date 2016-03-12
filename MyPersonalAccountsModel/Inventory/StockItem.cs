@@ -31,6 +31,11 @@
         public decimal OpeningBalance { get; set; }
 
         /// <summary>
+        /// Human Readable System Id
+        /// </summary>
+        public string SystemId { get; set; }
+
+        /// <summary>
         /// Rate for Opening Balance
         /// </summary>
         public decimal OpeningRate { get; set; }

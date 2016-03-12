@@ -26,6 +26,11 @@
         public int StockUnitDecimalPlaces { get; set; }
 
         /// <summary>
+        /// Human Readable System Id
+        /// </summary>
+        public string SystemId { get; set; }
+
+        /// <summary>
         /// Display Unit information
         /// </summary>
         /// <returns></returns>
