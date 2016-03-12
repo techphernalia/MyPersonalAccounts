@@ -1,6 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using com.techphernalia.MyPersonalAccounts.Manager;
+using System;
 using System.Windows.Forms;
 
 namespace MyPersonalAccountsManager
@@ -15,7 +14,7 @@ namespace MyPersonalAccountsManager
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new Form1());
+            Application.Run(new frmAccountsManager());
         }
     }
 }
