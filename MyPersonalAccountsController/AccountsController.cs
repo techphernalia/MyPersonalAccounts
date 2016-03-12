@@ -1,8 +1,6 @@
 ﻿using com.techphernalia.MyPersonalAccounts.Model.Controller;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using com.techphernalia.MyPersonalAccounts.Model;
 using com.techphernalia.MyPersonalAccounts.Model.Exceptions;
 using System.Data.SqlClient;

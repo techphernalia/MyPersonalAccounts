@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace com.techphernalia.MyPersonalAccounts.Model.Inventory
+﻿namespace com.techphernalia.MyPersonalAccounts.Model.Inventory
 {
     /// <summary>
     /// Stock Items Type

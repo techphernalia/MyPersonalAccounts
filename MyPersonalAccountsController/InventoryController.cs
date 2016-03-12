@@ -1,12 +1,9 @@
 ﻿using com.techphernalia.MyPersonalAccounts.Model.Controller;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using com.techphernalia.MyPersonalAccounts.Model.Inventory;
 using com.techphernalia.MyPersonalAccounts.Controller.DAL;
 using System.Data.SqlClient;
-
 namespace com.techphernalia.MyPersonalAccounts.Controller
 {
     public class InventoryController : IInventoryController

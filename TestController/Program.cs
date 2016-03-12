@@ -1,11 +1,7 @@
 ﻿using com.techphernalia.MyPersonalAccounts.Controller;
-using com.techphernalia.MyPersonalAccounts.Model;
 using com.techphernalia.MyPersonalAccounts.Model.Controller;
-using com.techphernalia.MyPersonalAccounts.Model.Inventory;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace TestController
 {

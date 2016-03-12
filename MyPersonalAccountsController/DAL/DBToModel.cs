@@ -1,10 +1,8 @@
 ﻿using com.techphernalia.MyPersonalAccounts.Model;
 using com.techphernalia.MyPersonalAccounts.Model.Inventory;
-using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Text;
 
 namespace com.techphernalia.MyPersonalAccounts.Controller.DAL
 {
